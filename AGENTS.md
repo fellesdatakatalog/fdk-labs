@@ -34,7 +34,7 @@ Invoke skills using `/skill-name`:
 | `/commit-push`          | Stage, commit, and push to current branch       |
 | `/commit-push-branch`   | Pull main, create branch, commit, and push      |
 | `/create-pr`            | Generate PR description (arg: `fixes "#123"`)   |
-| `/security-check`       | Run npm audit and check Dependabot alerts       |
+| `/security-check-frontend` | Run npm audit and check Dependabot alerts    |
 | `/improve-prompt`       | Analyze and improve a prompt (arg: prompt text) |
 | `/create-feature-issue` | Create GitHub feature issue (Norwegian)         |
 | `/create-bug-issue`     | Create GitHub bug issue (Norwegian)             |

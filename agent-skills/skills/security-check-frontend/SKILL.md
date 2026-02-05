@@ -1,5 +1,5 @@
 ---
-name: security-check
+name: security-check-frontend
 description: Runs npm audit and checks Dependabot alerts to identify security vulnerabilities. Use when the user asks about 'security', 'vulnerabilities', 'audit', or 'dependencies'.
 model: sonnet
 allowed-tools: Read, Bash(yarn npm audit *), Bash(gh pr list *), Bash(yarn install)
