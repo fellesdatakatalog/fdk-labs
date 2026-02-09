@@ -8,7 +8,8 @@
   },
   "scripts": {
     "skills:add": "skills add ./agent-skills/skills",
-    "skills:list": "skills add ./agent-skills/skills --list"
+    "skills:list": "skills add ./agent-skills/skills --list",
+    "set-username": "bash scripts/set-username.sh"
   },
   "engines": {
     "node": ">=22.0.0"

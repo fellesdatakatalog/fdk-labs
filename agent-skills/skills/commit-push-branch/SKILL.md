@@ -7,11 +7,10 @@ disable-model-invocation: true
 
 # Git New Branch Workflow
 
-1. Run `./scripts/get-user.sh` to get the username for the branch name
-2. Checkout main and pull latest
-3. Create branch following template (substitute the username from step 1)
-4. Stage all, commit following template, never add Co-Authored-By. Commit message should be very short, max 50 characters
-5. Push branch
+1. Checkout main and pull latest
+2. Create branch following template
+3. Stage all, commit following template, never add Co-Authored-By. Commit message should be very short, max 50 characters
+4. Push branch
 
 ### Rules
 
@@ -21,7 +20,7 @@ disable-model-invocation: true
 
 ## Branch name template
 
-`<type>/$USER/<short-kebab-case-description>`
+`<type>/$username/<short-kebab-case-description>`
 
 ## Commit message template
 
