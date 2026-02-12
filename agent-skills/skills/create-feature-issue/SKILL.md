@@ -2,7 +2,6 @@
 name: create-feature-issue
 description: Creates a GitHub feature issue in Norwegian. Use when the user says 'create feature issue', 'feature request', or 'ny feature'.
 model: sonnet
-disable-model-invocation: true
 ---
 
 # Din oppgave

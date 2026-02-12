@@ -2,7 +2,6 @@
 name: create-bug-issue
 description: Creates a GitHub bug issue in Norwegian. Use when the user says 'create bug issue', 'report bug', 'feil', or 'bug rapport'.
 model: sonnet
-disable-model-invocation: true
 ---
 
 # Din oppgave

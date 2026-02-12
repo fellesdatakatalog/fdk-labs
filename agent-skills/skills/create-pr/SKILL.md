@@ -3,7 +3,6 @@ name: create-pr
 description: Creates a pull request with auto-generated title and description. Use when the user says 'create PR', 'open pull request', or 'submit for review'.
 model: sonnet
 argument-hint: [fixes #issue-number]
-disable-model-invocation: true
 ---
 
 Write a short pull request description and title for GitHub, then ask for confirmation before creating the PR.

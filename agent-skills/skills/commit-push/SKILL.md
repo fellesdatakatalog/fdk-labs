@@ -2,7 +2,6 @@
 name: commit-push
 description: Commits and pushes changes to the current branch. Use when the user says 'commit', 'push changes', 'save my work', or asks to push staged changes.
 model: sonnet
-disable-model-invocation: true
 ---
 
 # Git Commit

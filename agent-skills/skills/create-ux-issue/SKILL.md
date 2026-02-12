@@ -2,7 +2,6 @@
 name: create-ux-issue
 description: Creates a GitHub UX issue in Norwegian. Use when the user says 'create UX issue', 'UX problem', or 'brukeropplevelse'.
 model: sonnet
-disable-model-invocation: true
 ---
 
 # Din oppgave

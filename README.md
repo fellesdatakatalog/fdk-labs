@@ -20,13 +20,13 @@ yarn install
 yarn set-username
 ```
 
-The `set-username` script replaces `$username` placeholders across the skill files with your username. This is required before using the skills.
+The `set-username` script saves your username to `agent-skills/.username` (gitignored). Skills that need a username will read from this file at runtime.
 
 ## Available Commands
 
 | Command              | Description                              |
 | -------------------- | ---------------------------------------- |
-| `yarn set-username`  | Set your username in skill files         |
+| `yarn set-username`  | Save your username for use in skills     |
 | `yarn skills:add`    | Install skills to Claude Code            |
 | `yarn skills:list`   | List available skills                    |
 

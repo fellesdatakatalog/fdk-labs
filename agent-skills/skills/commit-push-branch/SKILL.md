@@ -2,7 +2,6 @@
 name: commit-push-branch
 description: Creates a new branch, commits changes, and pushes. Use when the user wants to 'create a branch', 'start a new feature', or 'branch off'.
 model: sonnet
-disable-model-invocation: true
 ---
 
 # Git New Branch Workflow
@@ -20,7 +19,9 @@ disable-model-invocation: true
 
 ## Branch name template
 
-`<type>/$username/<short-kebab-case-description>`
+Read the username by running: `cat agent-skills/.username`
+
+`<type>/<username>/<short-kebab-case-description>`
 
 ## Commit message template
 
