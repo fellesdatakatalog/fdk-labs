@@ -9,16 +9,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fellesdatakatalog/fdk-labs@workspace:."
   dependencies:
-    skills: "npm:1.3.4"
+    skills: "npm:1.3.8"
   languageName: unknown
   linkType: soft
 
-"skills@npm:1.3.4":
-  version: 1.3.4
-  resolution: "skills@npm:1.3.4"
+"skills@npm:1.3.8":
+  version: 1.3.8
+  resolution: "skills@npm:1.3.8"
   bin:
     add-skill: bin/cli.mjs
     skills: bin/cli.mjs
-  checksum: 10c0/57a9819c2a6eccbbaab92270d28b932304005a5e651494b176d4448405ed7cd1a73c0c73afef8031daa1560535b6cb608bfbda8b942e66668174cde37ba64493
+  checksum: 10c0/cf23f801b6c635932e214536d5329d7d169572c760d70f02c4a95d7e8a794b352375547d6c2e3e00164bdb335ec690bd1b985c4f1101c1339c2b556e1ce5b7db
   languageName: node
   linkType: hard
