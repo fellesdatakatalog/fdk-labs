@@ -7,7 +7,7 @@ model: sonnet
 # Git New Branch Workflow
 
 1. Checkout main and pull latest
-2. Read the username by running: `git config skill.username`
+2. Read the username by running: `git config skill.username`. If not found, ask user to run `scripts/set-username.sh` in fdk-labs to set it first
 3. Create branch following template
 4. Stage all, commit following template, never add Co-Authored-By. Commit message should be very short, max 50 characters
 5. Push branch
