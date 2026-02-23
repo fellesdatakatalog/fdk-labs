@@ -9,6 +9,7 @@ Agent Skills Framework for Claude Code. This repository contains skill definitio
 | `/commit-push`          | Stage, commit, and push to current branch   |
 | `/commit-push-branch`   | Pull main, create branch, commit, and push  |
 | `/create-pr`            | Generate pull request description and title |
+| `/create-branch-and-pr` | Branch, commit, push, and create pull request |
 | `/security-check-frontend` | Run npm audit and check Dependabot alerts |
 | `/improve-prompt`       | Analyze and improve a prompt                |
 | `/create-feature-issue` | Create GitHub feature issue                 |
