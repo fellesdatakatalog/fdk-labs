@@ -6,7 +6,7 @@ A collection of agent resources for AI-assisted development workflows.
 
 | Resource                                 | Description                       |
 | ---------------------------------------- | --------------------------------- |
-| [agent-skills](./agent-skills/README.md) | Skill definitions for Claude Code |
+| [agent-skills](./agent-skills/README.md) | Skill definitions for AI agents |
 
 ## Requirements
 
@@ -27,10 +27,10 @@ The `set-username` script saves your username to `git config --global skill.user
 | Command             | Description                          |
 | ------------------- | ------------------------------------ |
 | `yarn set-username` | Save your username for use in skills |
-| `yarn skills:add`   | Install skills to Claude Code        |
+| `yarn skills:add`   | Install skills to your agent         |
 | `yarn skills:list`  | List available skills                |
 
-> **Tip:** When using `yarn skills:add`, it is recommended to choose the symlink option when prompted. This maintains a single source of truth, so any changes to skills in this repository are immediately reflected in Claude Code.
+> **Tip:** When using `yarn skills:add`, it is recommended to choose the symlink option when prompted. This maintains a single source of truth, so any changes to skills in this repository are immediately reflected in your agent.
 
 ## License
 
