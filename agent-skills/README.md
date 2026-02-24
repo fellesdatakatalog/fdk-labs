@@ -1,6 +1,6 @@
 # Agent Skills
 
-Agent Skills Framework for Claude Code. This repository contains skill definitions that extend Claude Code with reusable workflows for common development tasks.
+Agent Skills Framework for AI-assisted development. This repository contains skill definitions that extend your agent with reusable workflows for common development tasks.
 
 ## Available Skills
 
