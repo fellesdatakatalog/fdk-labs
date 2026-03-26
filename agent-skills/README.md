@@ -15,7 +15,7 @@ Agent Skills Framework for AI-assisted development. This repository contains ski
 | `/create-feature-issue` | Create GitHub feature issue                 |
 | `/create-bug-issue`     | Create GitHub bug issue                     |
 | `/create-ux-issue`      | Create GitHub UX issue                      |
-| `/dependency-cleanup-js` | Check for unused JS dependencies and plan removals |
+| `/tree-shaking-js`       | Check for unused JS dependencies and plan removals |
 
 ## Creating New Skills
 

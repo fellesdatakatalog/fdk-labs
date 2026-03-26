@@ -36,7 +36,7 @@ Invoke skills using `/skill-name`:
 | `/create-feature-issue`    | Create GitHub feature issue (Norwegian)            |
 | `/create-bug-issue`        | Create GitHub bug issue (Norwegian)                |
 | `/create-ux-issue`         | Create GitHub UX issue (Norwegian)                 |
-| `/dependency-cleanup-js`   | Check for unused JS dependencies and plan removals |
+| `/tree-shaking-js`         | Check for unused JS dependencies and plan removals |
 
 ## Skill File Format
 
@@ -51,3 +51,7 @@ argument-hint: [optional placeholder for arguments]
 ```
 
 Use `$ARGUMENTS` in the skill body to reference user-provided arguments.
+
+## Important Rules
+
+- Never run `yarn skills:add --yes` without asking for permission first. It is not recommended to use this command for verification.

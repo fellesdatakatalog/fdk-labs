@@ -1,6 +1,6 @@
 ---
-name: dependency-cleanup-js
-description: Checks for unused JS/Node dependencies and identifies quick-win removals. Use when the user asks about 'unused dependencies', 'cleanup dependencies', 'depcheck', or 'remove unused packages'.
+name: tree-shaking-js
+description: Checks for unused JS/Node dependencies and identifies quick-win removals. Use when the user asks about 'tree shaking', 'unused dependencies', 'cleanup dependencies', 'depcheck', or 'remove unused packages'.
 model: sonnet
 allowed-tools: Read, Glob, Bash(npx depcheck *), Bash(cat *), Bash(ls *)
 ---
