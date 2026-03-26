@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Prompt for the username
-read -rp "Enter your username: " username
+username="${1:-}"
+
+if [[ -z "$username" ]]; then
+  read -rp "Enter your username: " username
+fi
 
 if [[ -z "$username" ]]; then
   echo "Error: username cannot be empty." >&2

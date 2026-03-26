@@ -17,16 +17,22 @@ A collection of agent resources for AI-assisted development workflows.
 
 ```bash
 yarn install
-yarn set-username
 ```
 
-The `set-username` script saves your username to `git config --global skill.username`. Skills that need a username will read from this config at runtime.
+Skills that need a username (e.g., for branch names) will ask for it on first use and cache it in `git config --global skill.username`.
+
+To set or override manually:
+
+```bash
+yarn set-username           # interactive prompt
+yarn set-username myname    # non-interactive
+```
 
 ## Available Commands
 
 | Command             | Description                          |
 | ------------------- | ------------------------------------ |
-| `yarn set-username` | Save your username for use in skills |
+| `yarn set-username` | Set or override your username for skills |
 | `yarn skills:add`   | Install skills to your agent         |
 | `yarn skills:list`  | List available skills                |
 
