@@ -16,6 +16,10 @@ agent-skills/skills/*.zip
 !.yarn/versions
 .pnp.*
 
+# Skills installation cache
+.agents/
+.claude/
+
 # OS files
 .DS_Store
 Thumbs.db

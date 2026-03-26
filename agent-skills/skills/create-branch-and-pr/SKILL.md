@@ -8,7 +8,9 @@ argument-hint: "[fixes #issue-number]"
 # Git Branch and Pull Request Workflow
 
 1. Checkout main and pull latest
-2. Read the username by running: `git config skill.username`. If not found, ask user to run `scripts/set-username.sh` in fdk-labs to set it first
+2. Resolve the username for the branch name:
+   - Run `git config skill.username`
+   - If empty, ask the user for their username and save it with `git config --global skill.username <provided-value>`
 3. Create branch following the branch name template
 4. Stage all, commit following the commit message template. Commit message should be very short, max 50 characters
 5. Push branch
