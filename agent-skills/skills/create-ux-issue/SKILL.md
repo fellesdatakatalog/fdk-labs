@@ -4,6 +4,10 @@ description: Creates a GitHub UX issue in Norwegian. Use when the user says 'cre
 model: sonnet
 ---
 
+# Rules
+
+- Always ask for confirmation before pushing to GitHub
+
 # Din oppgave
 
 Se på endringene som er gjort og lag en GitHub UX issue. Fyll ut alle relevante felter. Hold teksten veldig kort. Opprett en GitHub UX issue og bruk malen beskrevet nedenfor.

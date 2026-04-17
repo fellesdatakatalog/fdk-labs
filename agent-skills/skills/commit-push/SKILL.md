@@ -15,6 +15,7 @@ model: sonnet
 - Generate message based on the current git diff and local changes
 - Never commit or push directly to main
 - Never add signatures or Co-Authored-By
+- Always ask for confirmation before pushing to GitHub
 
 ### Commit message template
 
