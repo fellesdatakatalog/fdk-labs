@@ -4,6 +4,10 @@ description: Creates a GitHub bug issue in Norwegian. Use when the user says 'cr
 model: sonnet
 ---
 
+# Rules
+
+- Always ask for confirmation before pushing to GitHub
+
 # Din oppgave
 
 Se på endringene som er gjort i koden og lag en GitHub bug issue. Fyll ut alle relevante felter. Hold teksten veldig kort. Opprett en GitHub bug issue og bruk malen beskrevet nedenfor.

@@ -4,6 +4,10 @@ description: Creates a GitHub feature issue in Norwegian. Use when the user says
 model: sonnet
 ---
 
+# Rules
+
+- Always ask for confirmation before pushing to GitHub
+
 # Din oppgave
 
 Se på endringene som er gjort i koden og lag en GitHub feature issue. Fyll ut alle relevante felter. Hold teksten veldig kort. Opprett en GitHub feature issue og bruk malen beskrevet nedenfor.
