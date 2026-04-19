@@ -1,12 +1,4 @@
-```
-    T
-  .-"-.        ___ ___  _  __    _      _   ___ ___
- |  ___|      | __|   \| |/ /   | |    /_\ | _ ) __|
- | (.\/.)     | _|| |) | ' <    | |__ / _ \| _ \__ \
- |  ,,,'      |_| |___/|_|\_\   |____/_/ \_\___/___/
- | '###
-  '----'
-```
+![fdk-labs](./docs/banner.svg)
 
 A shared toolbox of customisations that make AI coding agents smarter for everyone
 
