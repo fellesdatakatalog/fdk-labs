@@ -23,6 +23,12 @@
       <feGaussianBlur stdDeviation="0.6" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="blob" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <clipPath id="card">
+      <rect x="4" y="4" width="552" height="172" rx="14" ry="14"/>
+    </clipPath>
   </defs>
 
   <style>
@@ -31,6 +37,22 @@
     .title-block { font: 400 16px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: url(#g); }
     @keyframes blink { 50% { opacity: 0.2; } }
   </style>
+
+  <g clip-path="url(#card)">
+    <rect x="4" y="4" width="552" height="172" rx="14" ry="14" fill="#64748b" fill-opacity="0.06"/>
+    <circle cx="90" cy="60" r="32" fill="#0891b2" fill-opacity="0.35" filter="url(#blob)">
+      <animate attributeName="cx" values="90;340;180;90" dur="14s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="60;120;40;60" dur="14s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="290" cy="140" r="38" fill="#7c3aed" fill-opacity="0.35" filter="url(#blob)">
+      <animate attributeName="cx" values="290;120;460;290" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="140;40;130;140" dur="18s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="470" cy="50" r="34" fill="#db2777" fill-opacity="0.35" filter="url(#blob)">
+      <animate attributeName="cx" values="470;220;380;470" dur="16s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="50;150;70;50" dur="16s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 
   <text class="bender" x="16" y="42" xml:space="preserve"><tspan x="16" dy="0">    T</tspan><tspan x="16" dy="1em">  .-"-.</tspan><tspan x="16" dy="1em"> |  ___|</tspan><tspan x="16" dy="1em"> | (<tspan class="eye">.\/.</tspan>)</tspan><tspan x="16" dy="1em"> |  ,,,'</tspan><tspan x="16" dy="1em"> | '###</tspan><tspan x="16" dy="1em">  '----'</tspan></text>
 
