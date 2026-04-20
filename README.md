@@ -1,4 +1,5 @@
 ![fdk-labs](./docs/banner.svg)
+
 A shared toolbox of customisations that make AI coding agents smarter for everyone
 
 ## What is this?
