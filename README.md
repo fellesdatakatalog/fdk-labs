@@ -36,9 +36,9 @@ yarn skills:add        # pick "symlink" — keeps this repo as the single source
 
 > **Tip:** Choose the **symlink** option when prompted. That way, when someone improves a Skill in this repo, you get the update next time you run `git pull` — no reinstall needed.
 
-### Use with Claude Desktop (claude.ai)
+### Use with Claude Cowork (desktop / claude.ai)
 
-Skills uploaded to claude.ai don't sync from Claude Code, so they need to be packaged and uploaded manually. Three steps:
+Skills uploaded to Claude Cowork or claude.ai don't sync from Claude Code, so they need to be packaged and uploaded manually. Three steps:
 
 1. **Build the skill bundles**
 
@@ -58,6 +58,8 @@ Skills uploaded to claude.ai don't sync from Claude Code, so they need to be pac
    The skill appears in your Skills list and is ready to use in any chat.
 
 > **Tip:** Updates aren't automatic. When a skill changes in this repo, run `yarn skills:export` again and re-upload the affected `.zip`.
+
+> **Note on `gh`-based skills:** Skills that shell out to `gh` (like `create-bug-issue`) work in Cowork via its integrated terminal — make sure `gh` is installed and authenticated locally. Alternatively, enable Cowork's GitHub connector to skip the CLI entirely.
 
 ## Repository structure
 
