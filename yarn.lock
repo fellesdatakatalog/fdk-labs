@@ -10,7 +10,7 @@ __metadata:
   resolution: "@fellesdatakatalog/fdk-labs@workspace:."
   dependencies:
     archiver: "npm:^7.0.1"
-    skills: "npm:1.3.8"
+    skills: "npm:1.5.3"
   languageName: unknown
   linkType: soft
 
@@ -611,13 +611,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"skills@npm:1.3.8":
-  version: 1.3.8
-  resolution: "skills@npm:1.3.8"
+"skills@npm:1.5.3":
+  version: 1.5.3
+  resolution: "skills@npm:1.5.3"
+  dependencies:
+    yaml: "npm:^2.8.3"
   bin:
     add-skill: bin/cli.mjs
     skills: bin/cli.mjs
-  checksum: 10c0/cf23f801b6c635932e214536d5329d7d169572c760d70f02c4a95d7e8a794b352375547d6c2e3e00164bdb335ec690bd1b985c4f1101c1339c2b556e1ce5b7db
+  checksum: 10c0/3120ae7a2fe1dc6156fe89144c81ae16df27b1dbf6cc9d125d0300dd006cb66a3ba96c710f9d64c1b8a377699af1db1f454464685b93348d763a7cb3587f3095
   languageName: node
   linkType: hard
 
@@ -757,6 +759,15 @@ __metadata:
     string-width: "npm:^5.0.1"
     strip-ansi: "npm:^7.0.1"
   checksum: 10c0/138ff58a41d2f877eae87e3282c0630fc2789012fc1af4d6bd626eeb9a2f9a65ca92005e6e69a75c7b85a68479fe7443c7dbe1eb8fbaa681a4491364b7c55c60
+  languageName: node
+  linkType: hard
+
+"yaml@npm:^2.8.3":
+  version: 2.8.3
+  resolution: "yaml@npm:2.8.3"
+  bin:
+    yaml: bin.mjs
+  checksum: 10c0/ddff0e11c1b467728d7eb4633db61c5f5de3d8e9373cf84d08fb0cdee03e1f58f02b9f1c51a4a8a865751695addbd465a77f73f1079be91fe5493b29c305fd77
   languageName: node
   linkType: hard
 
