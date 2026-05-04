@@ -26,6 +26,7 @@ argument-hint: "[fixes #issue-number]"
 - Never include a test plan
 - Always ask for confirmation before creating the PR in GitHub
 - Do not create the PR until the user explicitly confirms
+- Use `gh pr create` to create the PR
 - Produce the PR description in the exact format below
 
 ## Branch name template

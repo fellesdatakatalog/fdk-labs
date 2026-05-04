@@ -15,6 +15,7 @@ Write a short pull request description and title for GitHub, then ask for confir
 - Always ask for confirmation before creating the PR in GitHub
 - Never add signatures or Co-Authored-By
 - Do not create the PR until the user explicitly confirms.
+- Use `gh pr create` to create the PR.
 - Produce the PR description in the exact format below.
 
 ## PR title
