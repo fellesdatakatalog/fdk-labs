@@ -4,11 +4,13 @@
   "description": "Agent Skills Framework for Claude Code",
   "license": "Apache-2.0",
   "devDependencies": {
-    "skills": "1.3.8"
+    "archiver": "^7.0.1",
+    "skills": "1.5.3"
   },
   "scripts": {
     "skills:add": "skills add ./agent-skills/skills",
     "skills:list": "skills add ./agent-skills/skills --list",
+    "skills:export": "node scripts/export-skills.mjs",
     "set-username": "bash scripts/set-username.sh"
   },
   "engines": {

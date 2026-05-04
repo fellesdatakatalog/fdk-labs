@@ -25,7 +25,9 @@ The Skills in `fdk-labs` are reusable commands that extend your agent with Digdi
 
 **Just want to browse?** Head to [**<u>Skills →</u>**](./agent-skills/README.md) to see the full catalog and what each Skill does.
 
-**Want to install it?** Two steps:
+### Use with Claude Code
+
+Two steps:
 
 ```bash
 yarn install
@@ -34,12 +36,37 @@ yarn skills:add        # pick "symlink" — keeps this repo as the single source
 
 > **Tip:** Choose the **symlink** option when prompted. That way, when someone improves a Skill in this repo, you get the update next time you run `git pull` — no reinstall needed.
 
+### Use with Claude Cowork (desktop / claude.ai)
+
+Skills uploaded to Claude Cowork or claude.ai don't sync from Claude Code, so they need to be packaged and uploaded manually. Three steps:
+
+1. **Build the skill bundles**
+
+   ```bash
+   yarn install
+   yarn skills:export
+   ```
+
+   This produces one `.zip` per skill in `dist/skills/`.
+
+2. **Upload to claude.ai**
+
+   Open Claude in the desktop app or [claude.ai](https://claude.ai), then go to _Customize → Skills → + → Create skill → Upload_ and pick a `.zip` from `dist/skills/`. Repeat for each skill you want.
+
+3. **Use the skill**
+
+   The skill appears in your Skills list and is ready to use in any chat.
+
+> **Tip:** Updates aren't automatic. When a skill changes in this repo, run `yarn skills:export` again and re-upload the affected `.zip`.
+
+> **Note on `gh`-based skills:** Skills that shell out to `gh` (like `create-bug-issue`) work in Cowork via its integrated terminal — make sure `gh` is installed and authenticated locally. Alternatively, enable Cowork's GitHub connector to skip the CLI entirely.
+
 ## Repository structure
 
 ```text
 fdk-labs/
 ├── agent-skills/        # The Skills framework + the catalog
-├── scripts/             # Helper scripts (e.g. set-username.sh)
+├── scripts/             # Helper scripts (e.g. skills export, set-username)
 ├── AGENTS.md            # Conventions for AI agents
 ├── CLAUDE.md            # Project instructions for Claude Code
 └── package.json
