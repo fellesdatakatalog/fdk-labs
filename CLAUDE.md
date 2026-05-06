@@ -37,6 +37,7 @@ Invoke skills using `/skill-name`:
 | `/create-bug-issue`        | Create GitHub bug issue (Norwegian)                |
 | `/create-ux-issue`         | Create GitHub UX issue (Norwegian)                 |
 | `/tree-shaking-js`         | Check for unused JS dependencies and plan removals |
+| `/list-issues`             | List GitHub issues assigned to me (arg: filter, e.g. "current sprint") |
 
 ## Skill File Format
 

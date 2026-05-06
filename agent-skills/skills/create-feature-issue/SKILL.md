@@ -2,6 +2,7 @@
 name: create-feature-issue
 description: Creates a GitHub feature issue in Norwegian. Use when the user says 'create feature issue', 'feature request', or 'ny feature'.
 model: sonnet
+argument-hint: "[additional context (optional)]"
 ---
 
 # Rules
@@ -10,7 +11,11 @@ model: sonnet
 
 # Din oppgave
 
-Se på endringene som er gjort i koden og lag en GitHub feature issue. Fyll ut alle relevante felter. Hold teksten veldig kort. Opprett en GitHub feature issue og bruk malen beskrevet nedenfor.
+**Additional context:** $ARGUMENTS
+
+If "Additional context" above is empty, look at the changes made in the code as before. If context is provided, use it as the primary information source for the issue and ignore code changes unless the context refers to them.
+
+Create a GitHub feature issue using `gh issue create`. Fill out all relevant fields. Keep the text very short. Use the template described below.
 
 # GitHub Issue
 
