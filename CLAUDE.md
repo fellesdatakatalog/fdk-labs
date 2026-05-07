@@ -38,6 +38,7 @@ Invoke skills using `/skill-name`:
 | `/create-ux-issue`         | Create GitHub UX issue (Norwegian)                 |
 | `/tree-shaking-js`         | Check for unused JS dependencies and plan removals |
 | `/list-issues`             | List GitHub issues assigned to me (arg: filter, e.g. "current sprint") |
+| `/update-rust`             | Update all dependencies in a Rust project to the newest version |
 
 ## Skill File Format
 
