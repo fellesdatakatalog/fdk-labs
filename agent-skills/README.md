@@ -15,6 +15,7 @@ A Skill is a Markdown file with YAML frontmatter that Claude Code treats as a re
 | `/create-pr`               | Generate pull request description and title   | `[fixes #issue]`      | EN       |
 | `/create-branch-and-pr`    | Branch, commit, push, and create pull request | `[fixes #issue]`      | EN       |
 | `/security-check-frontend` | Run `npm audit` and check Dependabot alerts   | —                     | EN       |
+| `/security-check-python`   | Run `pip-audit` and check Dependabot alerts   | —                     | EN       |
 | `/tree-shaking-js`         | Check for unused JS/Node dependencies         | —                     | EN       |
 | `/improve-prompt`          | Analyse and improve a prompt                  | `[prompt to improve]` | EN       |
 | `/create-feature-issue`    | Create GitHub feature issue                   | —                     | NO       |
