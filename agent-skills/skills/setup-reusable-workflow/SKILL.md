@@ -224,6 +224,20 @@ describe the change so the user can open an issue/PR there.
 If migrating leaves the repo strictly worse than its current bespoke workflow on some axis, say so
 plainly rather than pushing the migration through.
 
+> **Specification repos (`specification-*` workflows) — propagate across version branches.**
+> Specification repos default to the **`develop`** branch, not `main`, and keep several **version
+> branches** (e.g. `dcat-ap-no` has `v1.1`, `v2`, `v3`). Each version branch carries its **own copy**
+> of the workflow files — often version-named (`adocs-build-v2.yml`,
+> `publish-docs-v1.1-to-staging.yml`) — so a fix applied on `develop` does **not** reach them.
+> When the target is a specification repo:
+> 1. Make the change on `develop` first.
+> 2. Enumerate the version branches: `gh api 'repos/<owner>/<repo>/branches?per_page=100' --jq '.[].name'`
+>    and keep the version-like ones (`v1.1`, `v2`, …); ignore `develop`, `gh-pages`, `html`, etc.
+> 3. For each version branch, recommend a **separate PR targeting that branch** that applies the
+>    equivalent fix to *that branch's* workflow files — adapt to its filenames and staging/prod
+>    variants rather than copying `develop`'s files verbatim. List these as concrete follow-up
+>    actions in the report (one row per branch).
+
 ### Step 8: Show the plan, then apply
 
 Present the report below with the full proposed file. After the user confirms, write it with
@@ -261,6 +275,13 @@ Edit/Write and show `git diff -- <file>`. Stop short of committing.
 - <e.g. "This repo builds with `--platform linux/arm64`; `build-deploy.yaml` has no input for
   build platform. Workaround: none. Suggest proposing an optional `platforms` input upstream.">
 - <"None — the reusable workflow covers everything this repo needs." if so>
+
+### Version-branch follow-ups (specification repos only)
+_Only when the target is a specification repo with version branches. Omit otherwise._
+| Branch | Workflow file(s) to fix          | Action |
+| ------ | -------------------------------- | ------ |
+| v3     | publish-docs-v3-to-production.yml | Open PR targeting `v3` with the equivalent change |
+| v2     | adocs-build-v2.yml, ...           | Open PR targeting `v2` |
 
 ### Proposed file
 ```yaml
