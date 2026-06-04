@@ -21,6 +21,7 @@ A Skill is a Markdown file with YAML frontmatter that Claude Code treats as a re
 | `/create-feature-issue`    | Create GitHub feature issue                   | —                     | NO       |
 | `/create-bug-issue`        | Create GitHub bug issue                       | —                     | NO       |
 | `/create-ux-issue`         | Create GitHub UX issue                        | —                     | NO       |
+| `/setup-reusable-workflow` | Migrate or bootstrap a caller for a reusable workflow | `[file \| 'new']` | EN       |
 
 ## Anatomy of a skill
 

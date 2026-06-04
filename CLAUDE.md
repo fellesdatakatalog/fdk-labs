@@ -39,6 +39,7 @@ Invoke skills using `/skill-name`:
 | `/tree-shaking-js`         | Check for unused JS dependencies and plan removals |
 | `/list-issues`             | List GitHub issues assigned to me (arg: filter, e.g. "current sprint") |
 | `/update-rust`             | Update all dependencies in a Rust project to the newest version |
+| `/setup-reusable-workflow` | Migrate an existing workflow, or bootstrap a new one, to call a reusable workflow from the central workflows repo |
 
 ## Skill File Format
 
