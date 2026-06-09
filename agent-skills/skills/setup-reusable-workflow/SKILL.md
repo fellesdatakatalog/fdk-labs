@@ -26,6 +26,9 @@ Decide the mode in Step 1. `$ARGUMENTS` may name a specific workflow file to mig
 
 - **Never write a workflow file without showing the proposed result first.** Present a plan + the
   full file, then apply only after the user confirms.
+- **End every written/edited workflow file with exactly one trailing newline** in the initial
+  Write/Edit — the last line of YAML followed by a single `\n`, no blank lines after it. Get this
+  right on the first pass so no follow-up edit is needed to fix a missing newline.
 - **In migrate mode, preserve the caller's `on:` triggers verbatim** (push, pull_request,
   workflow_dispatch, branch/tag filters, paths). In bootstrap mode, choose sensible triggers and
   state them.
@@ -40,8 +43,11 @@ Decide the mode in Step 1. `$ARGUMENTS` may name a specific workflow file to mig
   security scan), propose one file per concern and say so.
 - For multi-environment deploys (staging vs prod), produce one caller job per environment, each
   with its own `environment`/`cluster`/autodeploy secret.
-- Only touch `.github/workflows/`. Do not commit or push (use `/commit-push` or
-  `/create-branch-and-pr` for that).
+- Only touch `.github/workflows/`.
+- **Do not run raw `git` for committing, branching, or PRs — invoke the existing skills.** Use
+  `/commit-push` to commit & push on the current branch, `/commit-push-branch` to start a new
+  branch, and `/create-branch-and-pr` to branch + commit + push + open a PR. This applies to every
+  version-branch follow-up PR too. Hand off to those skills rather than reimplementing git here.
 
 ### Step 1: Determine the mode
 
@@ -208,6 +214,17 @@ recommendations in two buckets. These are advisory — surface them, don't silen
 - Repo settings the new workflow assumes: secrets that must exist (list them), GitHub
   environments, or branch protections.
 - Triggers that should change (e.g. tag-push for prod releases).
+- **Dead workflows that can never trigger on the branch they live in.**
+  A branch-scoped event (`push`/`pull_request` with a `branches:` filter) resolves the workflow
+  file from the *target* branch, so a workflow filtered to a branch it does **not** live on never
+  runs. The common case: a `develop`-targeted workflow (`on: push: branches: [develop]`) sitting in
+  a `v1`/`v2`/`v3` branch — it is dead weight there. Flag any workflow whose only triggers are
+  branch-filtered `push`/`pull_request` events that exclude the current branch. (Leave alone
+  workflows that can still fire from this branch: `workflow_dispatch`, `schedule`, tag-push, or a
+  branch filter that includes this branch.)
+  **But only recommend *deleting* such a file on a branch that no longer merges `develop` forward**
+  — otherwise the next `develop`→branch merge just reintroduces it, creating churn and confusing
+  history. See the specification-repo note below for how to tell which branches are safe to clean.
 
 **B. Reusable-workflow gaps** — where the central workflow wouldn't work optimally for this repo:
 
@@ -229,19 +246,48 @@ plainly rather than pushing the migration through.
 > branches** (e.g. `dcat-ap-no` has `v1.1`, `v2`, `v3`). Each version branch carries its **own copy**
 > of the workflow files — often version-named (`adocs-build-v2.yml`,
 > `publish-docs-v1.1-to-staging.yml`) — so a fix applied on `develop` does **not** reach them.
+>
+> **Reason precisely about *when each workflow fires* before claiming anything about runs.** Read
+> every workflow's `on:` block and match it against the actual event. In particular:
+> - **Merging a PR that updates workflow files does not run those workflows.** A merge only fires a
+>   workflow if the resulting event matches its triggers (e.g. a `push` to the base branch with a
+>   matching `branches:`/`paths:` filter). Don't warn that "this workflow will trigger after the
+>   merge" unless you've confirmed the merge produces a matching event on the branch where that file
+>   is active.
+> - A workflow gated to another branch (e.g. `branches: [develop]`) will **not** run from a version
+>   branch, and vice versa.
+> - State, per workflow you touch, *which event on which branch* would actually run it — rather than
+>   asserting it will or won't run in the abstract.
+>
 > When the target is a specification repo:
 > 1. Make the change on `develop` first.
 > 2. Enumerate the version branches: `gh api 'repos/<owner>/<repo>/branches?per_page=100' --jq '.[].name'`
 >    and keep the version-like ones (`v1.1`, `v2`, …); ignore `develop`, `gh-pages`, `html`, etc.
-> 3. For each version branch, recommend a **separate PR targeting that branch** that applies the
->    equivalent fix to *that branch's* workflow files — adapt to its filenames and staging/prod
->    variants rather than copying `develop`'s files verbatim. List these as concrete follow-up
->    actions in the report (one row per branch).
+> 3. **Classify each version branch as develop-tracking or frozen** — this decides whether deleting
+>    dead files is safe. Compare it to `develop`:
+>    `gh api 'repos/<owner>/<repo>/compare/develop...<branch>' --jq '{status,ahead_by,behind_by}'`.
+>    - **Develop-tracking** (typically the *newest* version, only slightly behind — e.g. dcat-ap-no
+>      `v3` was behind=3): `develop` is still merged forward into it. **Do not delete** dead
+>      develop-targeted files here — the next merge re-adds them, producing delete/re-add churn.
+>      Fix the live workflows; leave the harmless dead copies for the develop merge to manage.
+>    - **Frozen** (older versions, far behind — e.g. `v2` behind=622, `v1.1` behind=1063): no longer
+>      receives `develop` merges, so deletions stick. Safe to clean up dead files here.
+> 4. For each version branch, recommend a **separate PR targeting that branch** that:
+>    - applies the equivalent fix to *that branch's* workflow files — adapt to its filenames and
+>      staging/prod variants rather than copying `develop`'s files verbatim; and
+>    - **on frozen branches only**, deletes workflows that can never run there (a `develop`-targeted
+>      file, or another version's publish workflow copied in — see the "dead workflows" bullet).
+>    List the edits and any deletions as concrete follow-up actions in the report (one row per
+>    branch), noting each branch's classification.
 
 ### Step 8: Show the plan, then apply
 
 Present the report below with the full proposed file. After the user confirms, write it with
-Edit/Write and show `git diff -- <file>`. Stop short of committing.
+Edit/Write and show `git diff -- <file>`.
+
+To commit and ship the change, **hand off to the existing skills — do not run raw `git`**:
+`/commit-push` (current branch), `/commit-push-branch` (new branch), or `/create-branch-and-pr`
+(branch + PR). Use `/create-branch-and-pr` for each version-branch follow-up PR as well.
 
 ## Output Format
 
@@ -278,10 +324,11 @@ Edit/Write and show `git diff -- <file>`. Stop short of committing.
 
 ### Version-branch follow-ups (specification repos only)
 _Only when the target is a specification repo with version branches. Omit otherwise._
-| Branch | Workflow file(s) to fix          | Action |
-| ------ | -------------------------------- | ------ |
-| v3     | publish-docs-v3-to-production.yml | Open PR targeting `v3` with the equivalent change |
-| v2     | adocs-build-v2.yml, ...           | Open PR targeting `v2` |
+| Branch | Class           | Fix                              | Delete (frozen only)    | Action |
+| ------ | --------------- | -------------------------------- | ----------------------- | ------ |
+| v3     | develop-tracking | publish-docs-v3-to-production.yml | — (skip; merge re-adds) | Open PR targeting `v3` |
+| v2     | frozen          | adocs-build-v2.yml               | adocs-build-develop.yml | Open PR targeting `v2` |
+| v1.1   | frozen          | publish-docs-v1.1-to-staging.yml | adocs-build-develop.yml | Open PR targeting `v1.1` |
 
 ### Proposed file
 ```yaml
