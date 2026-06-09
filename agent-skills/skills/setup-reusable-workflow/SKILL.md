@@ -26,6 +26,9 @@ Decide the mode in Step 1. `$ARGUMENTS` may name a specific workflow file to mig
 
 - **Never write a workflow file without showing the proposed result first.** Present a plan + the
   full file, then apply only after the user confirms.
+- **End every written/edited workflow file with exactly one trailing newline** in the initial
+  Write/Edit — the last line of YAML followed by a single `\n`, no blank lines after it. Get this
+  right on the first pass so no follow-up edit is needed to fix a missing newline.
 - **In migrate mode, preserve the caller's `on:` triggers verbatim** (push, pull_request,
   workflow_dispatch, branch/tag filters, paths). In bootstrap mode, choose sensible triggers and
   state them.
