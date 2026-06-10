@@ -36,6 +36,16 @@ yarn skills:add        # pick "symlink" — keeps this repo as the single source
 
 > **Tip:** Choose the **symlink** option when prompted. That way, when someone improves a Skill in this repo, you get the update next time you run `git pull` — no reinstall needed.
 
+#### Set your username (optional)
+
+Skills that create branches (like `/create-branch-and-pr` and `/commit-push-branch`) prefix branch names with your username. You can set it up front:
+
+```bash
+scripts/set-username.sh your-username
+```
+
+This saves the name to `git config --global skill.username`. If you skip this step, the skills will prompt you the first time they need it and save it for you.
+
 ### Use with Claude Cowork (desktop / claude.ai)
 
 Skills uploaded to Claude Cowork or claude.ai don't sync from Claude Code, so they need to be packaged and uploaded manually. Three steps:
