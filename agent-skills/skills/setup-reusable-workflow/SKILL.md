@@ -29,6 +29,11 @@ Decide the mode in Step 1. `$ARGUMENTS` may name a specific workflow file to mig
 - **End every written/edited workflow file with exactly one trailing newline** in the initial
   Write/Edit — the last line of YAML followed by a single `\n`, no blank lines after it. Get this
   right on the first pass so no follow-up edit is needed to fix a missing newline.
+- **Inspect existing files with the Read tool, never `cat`/Bash.** Write/Edit on an existing file
+  require a prior Read of *that exact path* in this session — viewing it via `cat`/`gh api`/Bash
+  does **not** count and the write will error. Before modifying or overwriting any local workflow,
+  Read it first. Plan ahead: Read every file you intend to write *before* the apply step, so the
+  writes don't fail and bounce.
 - **In migrate mode, preserve the caller's `on:` triggers verbatim** (push, pull_request,
   workflow_dispatch, branch/tag filters, paths). In bootstrap mode, choose sensible triggers and
   state them.
@@ -283,7 +288,9 @@ plainly rather than pushing the migration through.
 ### Step 8: Show the plan, then apply
 
 Present the report below with the full proposed file. After the user confirms, write it with
-Edit/Write and show `git diff -- <file>`.
+Edit/Write and show `git diff -- <file>`. **Read each target file with the Read tool before writing
+it** (a Bash `cat`/`gh api` view does not satisfy the Write/Edit pre-read — see Rules), so the
+applies don't error out.
 
 To commit and ship the change, **hand off to the existing skills — do not run raw `git`**:
 `/commit-push` (current branch), `/commit-push-branch` (new branch), or `/create-branch-and-pr`
