@@ -31,10 +31,13 @@ Two steps:
 
 ```bash
 yarn install
-yarn skills:add        # pick "symlink" — keeps this repo as the single source of truth
+yarn skills:add        # installs the skills and symlinks them back to this repo
 ```
 
-> **Tip:** Choose the **symlink** option when prompted. That way, when someone improves a Skill in this repo, you get the update next time you run `git pull` — no reinstall needed.
+> **Tip:** `skills:add` installs each Skill into the shared agent store and then symlinks the store
+> back to this repo, so it stays the single source of truth. When someone improves a Skill, you get
+> it on your next `git pull` — no reinstall needed (open a new session to load the change). If you
+> ever need to re-establish the symlinks on their own, run `yarn skills:link`.
 
 #### Set your username (optional)
 
