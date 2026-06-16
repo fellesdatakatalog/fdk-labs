@@ -54,9 +54,11 @@ argument-hint: [fixes #issue-number]
 2. Write `SKILL.md` with the frontmatter above
 3. Optionally add `scripts/<name>.sh` for Bash helpers
 4. `yarn skills:list` to confirm it's picked up
-5. `yarn skills:add` (pick symlink) and invoke `/my-new-skill` in Claude Code
+5. `yarn skills:add` to install it, then invoke `/my-new-skill` in Claude Code
 
-Symlinked skills pick up Markdown edits immediately — no rebuild, no restart.
+`yarn skills:add` installs skills into the shared agent store and then symlinks the store back to
+this repo, so Markdown edits (and `git pull`s) are picked up by the next session with no reinstall.
+(`yarn skills:link` runs that symlink step on its own, if you ever need to re-establish it.)
 
 ## Conventions
 

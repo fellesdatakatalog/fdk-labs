@@ -8,7 +8,8 @@
     "skills": "1.5.3"
   },
   "scripts": {
-    "skills:add": "skills add ./agent-skills/skills",
+    "skills:add": "skills add ./agent-skills/skills && node scripts/link-skills.mjs",
+    "skills:link": "node scripts/link-skills.mjs",
     "skills:list": "skills add ./agent-skills/skills --list",
     "skills:export": "node scripts/export-skills.mjs",
     "set-username": "bash scripts/set-username.sh"
