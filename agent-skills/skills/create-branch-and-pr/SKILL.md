@@ -1,6 +1,6 @@
 ---
 name: create-branch-and-pr
-description: Creates a new branch, commits changes, pushes, and opens a pull request. Use when the user says 'branch and PR', 'new branch with PR', or 'feature branch and pull request'.
+description: Create a branch, commit, push, and open a pull request for the current changes. Use whenever the user wants work moved onto its own branch and a PR opened — including paraphrases like "branch and PR", "move it to a dedicated branch", "put this on its own branch/PR", "open a PR for this", "feature branch with a pull request". Prefer this skill over running git/gh commands manually whenever a branch + PR is requested.
 model: sonnet
 argument-hint: "[fixes #issue-number]"
 ---

@@ -1,6 +1,6 @@
 ---
 name: commit-push-branch
-description: Creates a new branch, commits changes, and pushes. Use when the user wants to 'create a branch', 'start a new feature', or 'branch off'.
+description: Create a new branch, commit the current changes, and push it — without opening a pull request. Use whenever the user wants work moved onto a fresh branch but has not asked for a PR — including paraphrases like "create a branch", "branch off", "move this to a new branch", "put this on its own branch", "start a new feature branch". Prefer this skill over running git/gh commands manually whenever a new branch + push is requested. If the user also wants a pull request, use create-branch-and-pr instead.
 model: sonnet
 ---
 
