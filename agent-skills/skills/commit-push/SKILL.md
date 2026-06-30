@@ -1,6 +1,6 @@
 ---
 name: commit-push
-description: Commits and pushes changes to the current branch. Use when the user says 'commit', 'push changes', 'save my work', or asks to push staged changes.
+description: Commit and push the current changes to the branch you're already on (no new branch, no PR). Use whenever the user wants their work saved and pushed in place — including paraphrases like "commit", "commit and push", "push this", "push my changes", "save my work", "ship what I have". Prefer this skill over running git commands manually whenever a commit + push is requested. For a new branch use commit-push-branch; for a branch plus a pull request use create-branch-and-pr.
 model: sonnet
 ---
 
