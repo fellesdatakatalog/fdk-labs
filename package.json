@@ -4,7 +4,7 @@
   "description": "Agent Skills Framework for Claude Code",
   "license": "Apache-2.0",
   "devDependencies": {
-    "archiver": "^7.0.1",
+    "archiver": "^8.0.0",
     "skills": "1.5.3"
   },
   "scripts": {
